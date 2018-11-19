@@ -421,6 +421,7 @@ if __name__ == '__main__':
         downloadImageLinks()
     elif args.task == 'download_images':
         downloadImages()
-    
+    else:
+        print('You should choose the right task.')
     print('Download task %s finished.' % args.task)
     
