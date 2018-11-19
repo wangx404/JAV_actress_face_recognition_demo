@@ -10,7 +10,7 @@ This is the reason why I try to write such a project.
 
 To start from scratch, we need to collect enough actress images, clean the images, and choose a perfect model to train. 
 
--	collect data: As the copyright of most images are held by related companies, so I can’t share them with you. But there is a scrapper script listed in this project. You can use it to download images from JAV database[https://xxx.xcity.jp]. Similarly, you can write your own script to collect images from other websites.
+-	collect data: As the copyright of most images are held by related companies, so I can’t share them with you. But there is a scrapper script listed in this project. You can use it to download images from [JAV database](https://xxx.xcity.jp). Similarly, you can write your own script to collect images from other websites.
 
 -	clean data: Except some rotogravure images, the actress images we collected is dirty, and have much noise. To some grand face datasets, noise is not important. As we have a pretty small dataset, we should clean is before usage. Another import thing in this part is face alignment. It will help us to achieve a better result.
 
