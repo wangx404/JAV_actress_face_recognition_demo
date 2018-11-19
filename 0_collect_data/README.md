@@ -4,13 +4,13 @@ Script downloader.py in this folder is used to download images from JAV database
 
 You can run this script with command `python downloader.py --task xxx`, in which `xxx` is the download task. Tasks are listed below.
 
-- download_actress_details: download details of all actresses. The details include name, birthday, height and other information of the actress. You can view [this example](https://xxx.xcity.jp/idol/detail/?id=1&style=simple) to see what information are includes.
+- `download_actress_details`: download details of all actresses. The details include name, birthday, height and other information of the actress. You can view [this example](https://xxx.xcity.jp/idol/detail/?id=1&style=simple) to see what information are includes.
 
-- download_movie_details: download details of all movies. THe details include item id, title, actress, release date and other information of the movie. You can view [this example](https://xxx.xcity.jp/avod/detail/?id=1) to see what information are included.
+- `download_movie_details`: download details of all movies. THe details include item id, title, actress, release date and other information of the movie. You can view [this example](https://xxx.xcity.jp/avod/detail/?id=1) to see what information are included.
 
-- download_image_links: download image links of all movies. In the movie page, you can see that sample images, action images and gravure imames. This option is to download these image links in movie page. But you need to notice that, the action images and gravure images are not free to get. So if you want to download them in this and next step, you need to be a paid member.
+- `download_image_links`: download image links of all movies. In the movie page, you can see that sample images, action images and gravure imames. This option is to download these image links in movie page. But you need to notice that, the action images and gravure images are not free to get. So if you want to download them in this and next step, you need to be a paid member.
 
-- download_images: download images from image links downloaded. You can choose whick type of image to download in the script. After setting the value (sample, action, gravure) of the variable of function `downloadImages`, you can download opposite images.
+- `download_images`: download images from image links downloaded. You can choose whick type of image to download in the script. After setting the value (sample, action, gravure) of the variable of function `downloadImages`, you can download opposite images.
 
 ## Notice
 
