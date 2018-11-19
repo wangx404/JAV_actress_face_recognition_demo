@@ -2,7 +2,7 @@
 
 As a male born in China in 90s, watching Japanese adult video is very normal. Even though there are many ridiculous mistakes in those movies, we have learned a lot from those things. I appreciate for this. However, apart from some very famous actresses, such as Aoi Sora, Akiho Yoshizawa,Maria Ozawa and Yui Hatano, who else do we know? When a beautiful actress shown in the movie, can we find out who she is? As Japanese adult video industry produces tens of thousands of movies every year with plenty of new actresses, it is harder for us to remember all of them.
 
-![Janpanese adult video actresses](data/actresses.jpg)
+![Janpanese adult video actresses](data/JAV_actresses.png)
 
 At the same time, using deep learning method face recognition has achieved the same performance as human being. It has been used to solve many real-world problems. So why can’t we use it to do something funny and helpful?
 
