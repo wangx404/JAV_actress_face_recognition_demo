@@ -2,6 +2,8 @@
 
 As a male born in China in 90s, watching Japanese adult video is very normal. Even though there are many ridiculous mistakes in those movies, we have learned a lot from those things. I appreciate for this. However, apart from some very famous actresses, such as Aoi Sora, Akiho Yoshizawa,Maria Ozawa and Yui Hatano, who else do we know? When a beautiful actress shown in the movie, can we find out who she is? As Japanese adult video industry produces tens of thousands of movies every year with plenty of new actresses, it is harder for us to remember all of them.
 
+![Janpanese adult video actresses](data/actresses.jpg)
+
 At the same time, using deep learning method face recognition has achieved the same performance as human being. It has been used to solve many real-world problems. So why can’t we use it to do something funny and helpful?
 
 This is the reason why I try to write such a project.
@@ -26,7 +28,7 @@ In the first step, the website of JAV database is forbidden in China. So either 
 
 In the second step, there are many dirty images in the dataset. In some images, there are more than one actress; in other images, the actor in the picture is male. And when you try to align the face, some rotated faces are difficult to detect.
 
-In the third step, you should do many experiments to choose the model and loss function. As deep learning look like a black box sometimes, you might spend quite a lot time on it. 
+In the third step, you should do many experiments to choose the model and loss function. As deep learning looks like a black box sometimes, you might spend quite a lot time on it. 
 
 ## Dependence
 
