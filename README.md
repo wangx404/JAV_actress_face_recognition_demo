@@ -28,6 +28,6 @@ In the second step, there are many dirty images in the dataset. In some images, 
 
 In the third step, you should do many experiments to choose the model and loss function. As deep learning look like a black box sometimes, you might spend quite a lot time on it. 
 
-## dependence
+## Dependence
 
 To use this script, you have to install many packages. They are listed below.
