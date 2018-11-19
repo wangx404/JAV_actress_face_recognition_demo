@@ -26,6 +26,8 @@ You can run this script like this `python face_crop_and_size_filter.py --input_d
 
 - threshold: face filter threshold. Face size smaller than this threshold will be discarded.
 
+**Before using, you should install dlib and download `mmod_human_face_detector.dat` from dlib website. Then put the file in data directory, otherwise there would be a `file not found` error.**
+
 ### man_face_and_no_face_filter
 
 
