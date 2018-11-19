@@ -45,7 +45,7 @@ def downloadActressDetail(idol_index):
     :param idol_index: int number
     :return None:
     '''
-    root_dir = 'actress_details/'
+    root_dir = '../data/actress_details/'
     url = 'https://xxx.xcity.jp/idol/detail/?id=%d&style=simple' % idol_index
     web_data = requests.get(url)
     soup = BS(web_data.text, 'lxml')
@@ -142,7 +142,7 @@ def downloadMovieDetail(movie_index):
     :param movie_index: movie index, int number
     :return None:
     '''
-    root_dir = 'movie_details/'
+    root_dir = '../data/movie_details/'
     url = 'https://xxx.xcity.jp/avod/detail/?id=%d' % movie_index
     web_data = requests.get(url, cookies=cookies, headers=headers)
     soup = BS(web_data.text, 'lxml')
@@ -345,7 +345,7 @@ def downloadImageLinks():
     :param None:
     :return None:
     '''
-    root_dir = 'movie_image_links/'
+    root_dir = '../data/movie_image_links/'
     for movie_id in range(1, 160000):
         # make directory or return
         if not os.path.exists(os.path.join(root_dir, str(movie_id))):
@@ -380,8 +380,8 @@ def downloadImages(task='sample'):
     :param task: whicn type of image you want to download, sample, action or gravure
     :return None:
     '''
-    input_dir = 'movie_image_links/'
-    output_dir = 'movie_images_of_%s' % task
+    input_dir = '../data/movie_image_links/'
+    output_dir = '../data/movie_images_of_%s' % task
     movie_list = os.listdir(input_dir)
     movie_list.sort()
     for movie in movie_list:
