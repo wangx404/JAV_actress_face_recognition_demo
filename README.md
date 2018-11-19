@@ -1,6 +1,6 @@
 ## Background
 
-As a male born in China in 90s, watching Japanese adult video is very normal. Even though there are many ridiculous mistakes in those movies, we have learned a lot from those things. I appreciate for this. However, apart from some very famous actresses, such as Maria Ozawa, who else do we know? When a beautiful actress shown in the movie, can we find out who she is? As Japanese adult video industry produces tens of thousands of movies every year with plenty of new actresses, it is harder for us to remember all of them.
+As a male born in China in 90s, watching Japanese adult video is very normal. Even though there are many ridiculous mistakes in those movies, we have learned a lot from those things. I appreciate for this. However, apart from some very famous actresses, such as Aoi Sora, Akiho Yoshizawa,Maria Ozawa and Yui Hatano, who else do we know? When a beautiful actress shown in the movie, can we find out who she is? As Japanese adult video industry produces tens of thousands of movies every year with plenty of new actresses, it is harder for us to remember all of them.
 
 At the same time, using deep learning method face recognition has achieved the same performance as human being. It has been used to solve many real-world problems. So why can’t we use it to do something funny and helpful?
 
@@ -10,7 +10,7 @@ This is the reason why I try to write such a project.
 
 To start from scratch, we need to collect enough actress images, clean the images, and choose a perfect model to train. 
 
--	collect data: As the copyright of most images are held by related companies, so I can’t share them with you. But there is a scrapper script listed in this project. You can use it to download images from JAV database[]. Similarly, you can write your own script to collect images from other websites.
+-	collect data: As the copyright of most images are held by related companies, so I can’t share them with you. But there is a scrapper script listed in this project. You can use it to download images from JAV database[https://xxx.xcity.jp]. Similarly, you can write your own script to collect images from other websites.
 
 -	clean data: Except some rotogravure images, the actress images we collected is dirty, and have much noise. To some grand face datasets, noise is not important. As we have a pretty small dataset, we should clean is before usage. Another import thing in this part is face alignment. It will help us to achieve a better result.
 
