@@ -32,7 +32,13 @@ You can run this script using command like `python face_crop_and_size_filter.py 
 
 ### man_face_and_no_face_filter
 
+Though what we really want are images of those beautiful actresses, we still downloaded some male actors' images. And this is quite normal because an adult video always has both actress and actor. These male faces are noise in our dataset.In addition, the face detection model in dlib is not always right especially when you use dlib frontal face detector. To remove all these male-face images and images without faces, I choose to train a CNN classification model.
 
+You can run this script with command `python man_face_and_no_face_filter.py --threshold float`. The threshold is the probability threshold. If the third class (male face image) or the forth class (no face image) probability bigger than the threshold, the script with delete corresponding image. Of course you can change the script to change its behavior. For example, you could move the image to another directory if you don't want to remove them directly.
 
-**Before using, you should download or train a classfication model.**
+**Before usage, you should download or train a classfication model. I have uploaded a model in google drive, you can download it in [this link](https://drive.google.com/open?id=1y8Nz45jZt9K8QxaSE_XM66o-JkAGwYuk). With this model you can predict four image classes. 0 is good face image; 1 is bad face image, 2 is male actor image, 3 is no face image. The training log shows a pretty high accuracy for the latter two classes. And to separate good faces from bad faces, I'm still looking for a good ans simple method. After downloading the model, you should put the model params in data directory.**
+
 ### face_align
+
+After clearning with the above two scripts, we already have a good dataset. But to reach state-of-the-art accuracy, we need to align the face to the same position and normalize the image size with a width/height ratio 7:8, especially our dataset is mainly composed of asian women. 
+
