@@ -80,7 +80,8 @@ def loadModel(model_name, task_num_class, task_param, ctx):
     # 创建新的model,加载参数，重设ctx，hybridize()
     net = gluon.model_zoo.vision.get_model(model_name, classes=task_num_class, prefix='net_')
     net.collect_params().load(task_param, ctx = mx.cpu())
-    net.collect_params().reset_ctx(ctx)
+    if ctx != mx.cpu():
+        net.collect_params().reset_ctx(ctx)
     net.hybridize()
     return net
 
