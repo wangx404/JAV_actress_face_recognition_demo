@@ -18,7 +18,7 @@ def parseArgs():
     parser.add_argument('--worker_number', default=4, type=int,
                         help='number of preprocessing workers') # 图片处理线程数
     parser.add_argument('--use_gpu', default=False, type=bool,
-                        help='number of gpus to use, 0 indicates cpu only') # 模型运行设备
+                        help='whether to use gpu or not') # 模型运行设备
     parser.add_argument('--input_dir', required=True, type=str,
                         help='input image directory') # 输入文件夹
     parser.add_argument('--threshold', type=float,
@@ -151,4 +151,4 @@ if __name__ == "__main__":
     threshold = args.threshold
     
     net = loadModel(model_name, task_num_class, task_param, ctx)
-    predict(net, input_dir, threshold)
+    predict(net, ctx, input_dir, threshold)
