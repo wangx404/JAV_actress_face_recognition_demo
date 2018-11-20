@@ -58,10 +58,12 @@ You can run this script with command `python male_face_and_no_face_filter.py --m
 
 - input_dir: input images directory.
 
-- threshold: probability threshold. If the third class (male face image) or the forth class (no face image) probability bigger than the threshold, the script will delete corresponding image.
+- threshold: probability threshold. If the third class (male face image) or the forth class (no face image) probability higher than the threshold, the script will delete corresponding image.
+
+The result of faces in example image are shown belown. In the sheet, we can see that the probability of class 3 is 0.928 for man's face. But the probability class 3 for woman's face is higher than 0.5. So when choosing a probability threshold, you should be careful.
 
 | image name/prabability | class 1 | class 2 | class 3 | class 4 |
-| ------ | ------ | ------ | ------ | ------ |
+| :------: | :------: | :------: | :------: | :------: |
 | ![man face above](../data/example_face_0.jpg) | 0.012 | 0.056 | 0.928 | 0.003 |
 | ![ woman face above](../data/example_face_1.jpg) | 0.458 | 0.018 | 0.524 | 0.000 |
 
@@ -78,4 +80,8 @@ ___
 #### Background
 
 After clearning with the above two scripts, we already have a good dataset. But to reach state-of-the-art accuracy, we need to align the face to the same position and normalize the image size with a width/height ratio of 7:8. Considering that our dataset is mainly composed of asian women, this could be a hard task.
+
+#### Usage Description
+
+#### Notice
 
