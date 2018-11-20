@@ -60,7 +60,7 @@ You can run this script with command `python male_face_and_no_face_filter.py --m
 
 - threshold: probability threshold. If the third class (male face image) or the forth class (no face image) probability higher than the threshold, the script will delete corresponding image.
 
-The result of faces in example image are shown belown. In the sheet, we can see that the probability of class 3 is 0.928 for man's face. But the probability class 3 for woman's face is higher than 0.5. So when choosing a probability threshold, you should be careful.
+The result of faces in example image are shown below. In the sheet, we can see that the probability of class 3 is 0.928 for man's face. But the probability of class 3 for woman's face is higher than 0.5. Be careful when choosing a probability threshold.
 
 | image name/prabability | class 1 | class 2 | class 3 | class 4 |
 | :------: | :------: | :------: | :------: | :------: |
