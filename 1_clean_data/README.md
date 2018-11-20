@@ -60,6 +60,11 @@ You can run this script with command `python male_face_and_no_face_filter.py --m
 
 - threshold: probability threshold. If the third class (male face image) or the forth class (no face image) probability bigger than the threshold, the script will delete corresponding image.
 
+| image name/prabability | class 1 | class 2 | class 3 | class 4 |
+| ------ | ------ | ------ | ------ | ------ |
+| ![man face above](../data/example_face_0.jpg) | 0.012 | 0.056 | 0.928 | 0.003 |
+| ![ woman face above](../data/example_face_1.jpg) | 0.458 | 0.018 | 0.524 | 0.000 |
+
 #### Notice
 
 Before usage, you should download or train a classfication model. I have uploaded a model in google drive disk, you can download it in [this link](https://drive.google.com/open?id=1y8Nz45jZt9K8QxaSE_XM66o-JkAGwYuk). After downloading the model, you should put the model params file into ../data directory. If you want to train your own CNN model, you should prepare your own dataset. And in another way, you should classify the images manually. As a boring job, It may take you a lot time.
