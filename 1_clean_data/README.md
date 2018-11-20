@@ -32,20 +32,29 @@ You can run this script using command like `python face_crop_and_size_filter.py 
 
 Before using, you should install dlib and download `mmod_human_face_detector.dat` from [dlib website](http://dlib.net/files/mmod_human_face_detector.dat.bz2). Then you should put the model data file in ../data directory, otherwise there would be a `file not found` error.
 
-### man_face_and_no_face_filter
+### male_face_and_no_face_filter
 
 #### Background
 
 Though what we really want are images of those beautiful actresses, we still downloaded some male actors' images. And this is quite normal because adult videos usually has both actresses and actors. These male actors' faces are noise in our dataset. In addition, the face detection model in dlib is not always right especially when you choose to use dlib frontal face detector. To remove all these male-face images and images without faces, I choose to train a CNN classification model.
 
-With this model you can predict probabilties of four classes. class 1 is good face image; class 2 is bad face image; class 3 is male actor image; class 4 is no face image. The training log shows a pretty high accuracy for latter two classes. And to separate good faces from bad faces, I'm still looking for a good and simple method. Maybe using facial landmark detector to locate facial landmarks and calculate facial degree is one way. But it isn't good. In some images, the facial degree is normal, but there is mosaic around face. So using CNN model is better.
+You can run this script with command `python male_face_and_no_face_filter.py --model resnet18_v2 --class_number 4 --use_gpu True --input_dir ../data/xxx --threshold 0.9`.  The option descriptions are shown below.
 
-To train your own CNN model, you should prepare your own dataset. And in another way, you should classify the images manually. As a boring job, It may take a lot time.
+- model: CNN model name. In this script, a resnet18_v2 CNN model is used. You can find more models in model zoo provided by MXNet.
 
-You can run this script with command `python man_face_and_no_face_filter.py --threshold float`. The threshold is the probability threshold. If the third class (male face image) or the forth class (no face image) probability bigger than the threshold, the script will delete corresponding image. Of course you can change the script's behavior after computing the probability. For example, you could move the image to another directory if you don't want to remove them directly. Or you can write the result into a csv file, and process these images later.
+- class_number: CNN model class number. With this model you can predict probabilties of four classes. Class 1 is good face image; class 2 is bad face image; class 3 is male actor image; class 4 is no face image. The training log shows a pretty high accuracy for latter two classes. And to separate good faces from bad faces, I'm still looking for a good and simple method. Maybe using facial landmark detector to locate facial landmarks and calculate facial degree is one way. But it isn't good. In some images, the facial degree is normal, but there is mosaic around face. So using CNN model is better.
+
+- use_gpu: while to use gpu or not. Using gpu device to compute is faster. If you have gpu, just use it.
+
+- input_dir: input images directory.
+
+- threshold: probability threshold. If the third class (male face image) or the forth class (no face image) probability bigger than the threshold, the script will delete corresponding image.
 
 #### Notice
-Before usage, you should download or train a classfication model. I have uploaded a model in google drive disk, you can download it in [this link](https://drive.google.com/open?id=1y8Nz45jZt9K8QxaSE_XM66o-JkAGwYuk). After downloading the model, you should put the model params file into ../data directory.
+
+Before usage, you should download or train a classfication model. I have uploaded a model in google drive disk, you can download it in [this link](https://drive.google.com/open?id=1y8Nz45jZt9K8QxaSE_XM66o-JkAGwYuk). After downloading the model, you should put the model params file into ../data directory. If you want to train your own CNN model, you should prepare your own dataset. And in another way, you should classify the images manually. As a boring job, It may take you a lot time.
+
+In this script, male-face images and images without faces are deleted after predication. Of course you can change the script's behavior after computing the probability. For example, you could move the image to another directory if you don't want to delete them directly. Or you can write the result into a txt file, and process these images later.
 
 ### face_align
 
