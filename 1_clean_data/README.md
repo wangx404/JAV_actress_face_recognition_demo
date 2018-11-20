@@ -38,6 +38,8 @@ Before using, you should install dlib and download `mmod_human_face_detector.dat
 
 Though what we really want are images of those beautiful actresses, we still downloaded some male actors' images. And this is quite normal because adult videos usually has both actresses and actors. These male actors' faces are noise in our dataset. In addition, the face detection model in dlib is not always right especially when you choose to use dlib frontal face detector. To remove all these male-face images and images without faces, I choose to train a CNN classification model.
 
+#### Usage Description
+
 You can run this script with command `python male_face_and_no_face_filter.py --model resnet18_v2 --class_number 4 --use_gpu True --input_dir ../data/xxx --threshold 0.9`.  The option descriptions are shown below.
 
 - model: CNN model name. In this script, a resnet18_v2 CNN model is used. You can find more models in model zoo provided by MXNet.
