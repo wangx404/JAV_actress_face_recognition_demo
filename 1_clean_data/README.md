@@ -6,6 +6,8 @@ There are three scripts in this part. The script `face_crop_and_size_filter.py` 
 
 You should run these scripts in order, otherwise there would be some unexpected results.
 
+___
+
 ### face_crop_and_size_filter
 
 #### Background
@@ -36,6 +38,8 @@ As you can, the two faces in the example image was detected and cropped out.
 
 Before using, you should install dlib and download `mmod_human_face_detector.dat` from [dlib website](http://dlib.net/files/mmod_human_face_detector.dat.bz2). Then you should put the model data file in ../data directory, otherwise there would be a `file not found` error.
 
+___
+
 ### male_face_and_no_face_filter
 
 #### Background
@@ -61,6 +65,8 @@ You can run this script with command `python male_face_and_no_face_filter.py --m
 Before usage, you should download or train a classfication model. I have uploaded a model in google drive disk, you can download it in [this link](https://drive.google.com/open?id=1y8Nz45jZt9K8QxaSE_XM66o-JkAGwYuk). After downloading the model, you should put the model params file into ../data directory. If you want to train your own CNN model, you should prepare your own dataset. And in another way, you should classify the images manually. As a boring job, It may take you a lot time.
 
 In this script, male-face images and images without faces are deleted after predication. Of course you can change the script's behavior after computing the probability. For example, you could move the image to another directory if you don't want to delete them directly. Or you can write the result into a txt file, and process these images later.
+
+___
 
 ### face_align
 
