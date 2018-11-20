@@ -28,6 +28,9 @@ You can run this script using command like `python face_crop_and_size_filter.py 
 
 - threads: thread number to run the script. As dlib_cnn runs at a very slow speed, a multi thread/process function is necessary to save time. You can set threads equal to the kernel number of your cpu to speed up.
 
+![An example image for the process in this script](../exmaple1.jpg)
+As you can, the two faces in the example image was detected and cropped out.
+
 #### Notice
 
 Before using, you should install dlib and download `mmod_human_face_detector.dat` from [dlib website](http://dlib.net/files/mmod_human_face_detector.dat.bz2). Then you should put the model data file in ../data directory, otherwise there would be a `file not found` error.
