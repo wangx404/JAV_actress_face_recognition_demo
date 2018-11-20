@@ -11,7 +11,7 @@ def parseArgs():
     '''
     parser = argparse.ArgumentParser(description='Gluon for human face classification',
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--model', required=True, type=str,
+    parser.add_argument('--model', required=True, type=str, default='resnet18_v2',
                         help='name of the pretrained model from model zoo.') # 模型类型
     parser.add_argument('--class_number', required=True, type=int, default=4,
                         help='class number to predict') # 模型类别
@@ -21,8 +21,6 @@ def parseArgs():
                         help='number of gpus to use, 0 indicates cpu only') # 模型运行设备
     parser.add_argument('--input_dir', required=True, type=str,
                         help='input image directory') # 输入文件夹
-    parser.add_argument('--output_dir', type=str,
-                        help='output image directory') # 输出文件夹
     parser.add_argument('--threshold', type=float,
                         help='probability threshold to remove an input image') # 输出文件夹
     args = parser.parse_args()
