@@ -12,6 +12,9 @@ You can run this script with command `python downloader.py --task xxx`, in which
 
 - `download_images`: download images from image links downloaded. You can choose whick type of image to download in the script. After setting the value (sample, action, gravure) of the variable of function `downloadImages`, you can download opposite images.
 
+Some actresses' avatars are shown in the following picture.
+![some actresses' avatars](../data/JAV_actresses_downloaded.png)
+
 ## Notice
 
 1.  Hereby, I recommend you to run this script in order, though only step three and four are related.
@@ -24,4 +27,4 @@ You can run this script with command `python downloader.py --task xxx`, in which
 
 5.  You can write your own script to download images from other websites. The process is pretty similar.
 
-**P.S.Even though these adult videos are legal in Japan and other countries, It's illegal to spread these videos and pictures in China. So please be careful, and not save them in servers in China.**
+**P.S. Even though these adult videos are legal in Japan and other countries, It's illegal to spread these videos and pictures in China. So please be careful, and not save them in servers in China.**
