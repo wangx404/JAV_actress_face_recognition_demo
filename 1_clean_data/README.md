@@ -83,15 +83,15 @@ After clearning with the above two scripts, we already have a good dataset. But 
 
 #### Usage Description
 
-You can run this script like this `python face_align.py --input_dir ../data/xxx --output_dir ../data/xxx --face_detector dlibCNNFaceDetect --landmark_detector dlib68FacialLandmarkDetect --threads 8`. The option descriptions are shown below.
+You can run this script like this `python face_align.py --input_dir ../data/xxx --output_dir ../data/xxx --face_detector dlib_cnn --landmark_detector dlib_68 --threads 8`. The option descriptions are shown below.
 
 - input_dir: input image directory
 
 - output_dir: output image directory
 
-- face_detector: whicn face detect function you want to use. Here, you can choose `dlibCNNFaceDetect` or `dlibFrontalFaceDetect`. You can see more details in the description of script `face_crop_and_size_filter`. The first one is prefered.
+- face_detector: whicn face detect function you want to use. Here, you can choose `dlib_cnn` which means 'dlibCNNFaceDetect' or `dlib` which means 'dlibFrontalFaceDetect'. You can see more details in the description of script `face_crop_and_size_filter`. The first one is prefered.
 
-- landmark_detector: whicn facial landmark detect function you want to use. Here, you can choose `dlib68FacialLandmarkDetect` or `dlib5FacialLandmarkDetect`. The first one is prefered.
+- landmark_detector: whicn facial landmark detect function you want to use. Here, you can choose `dlib_68` which means dlib68FacialLandmarkDetect or `dlib_5` which means 'dlib5FacialLandmarkDetect'. The first one is prefered.
 
 - threads: threads number. Using mutiple threads to process can save time.
 
@@ -104,6 +104,9 @@ After face alignment, face was rotated to vertical state, and had width/height r
 #### Notice
 
 Before using, you should install dlib and download `shape_predictor_68_face_landmarks.dat` and `shape_predictor_5_face_landmarks.dat` from [dlib website](http://dlib.net/files/). Then you should put the model data file in ../data directory, otherwise there would be a `file not found` error.
+
+I don't compare the speed difference between function 'dlib68FacialLandmarkDetect' and 'dlib5FacialLandmarkDetect'. But what I can is that sometimes the prior has better performance, and sometimes the latter has better performance. So it's quite struggling to choose. You can make some experiments to choose one.
+
 ___
 
 ## resort_images
