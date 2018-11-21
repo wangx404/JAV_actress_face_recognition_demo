@@ -204,8 +204,8 @@ def downloadMovieDetail(movie_index):
     movie_info.append('Label:' + label)
     movie_info.append('Series:' + serie)
     movie_info.append('Genres:' + genres)
-    movie_info.append('Cast:' + cast)
     movie_info.append('Stars:' + stars)
+    movie_info.append('Actress:' + cast)
     movie_info.append('Description:' + description)
     movie_info = [line.replace('\n', '') for line in movie_info] # remove return
     movie_info = [line.replace('\t', '') for line in movie_info] # remove tab
