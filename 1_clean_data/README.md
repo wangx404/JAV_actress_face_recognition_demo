@@ -2,9 +2,9 @@
 
 Scripts in this folder can be used to help clean noise in images.
 
-There are three scripts in this part. The script `face_crop_and_size_filter.py` is used to crop face with margin from image and discard those small faces detected. The script `man_face_and_no_face_filter.py` is using CNN classificatyion model to filter images with no face and faces which belong to male actors. The script `face_align.py` is used to align faces and crop faces with special width/height ratio.
+There are four scripts in this part. The script `face_crop_and_size_filter.py` is used to crop face with margin from image and discard those small faces detected. The script `man_face_and_no_face_filter.py` is using CNN classificatyion model to filter images with no face and faces which belong to male actors. The script `face_align.py` is used to align faces and crop faces with special width/height ratio. The script `resort_images.py` is used to resort images from movie into actress.
 
-You should run these scripts in order, otherwise there would be some unexpected results.
+You'd better run these scripts in order, otherwise there would be some unexpected results.
 
 ___
 
