@@ -95,6 +95,12 @@ You can run this script like this `python face_align.py --input_dir ../data/xxx 
 
 - threads: threads number. Using mutiple threads to process can save time.
 
+After face alignment, face was rotated to vertical state, and had width/height ratio of 7/8. Face alignment result of an actress is shown below.
+
+|  face before alignment | face after alignment |
+| :------: | :------: |
+| ![](../data/actress_before_align.jpg) | ![](../data/actress_after_align.jpg) |
+
 #### Notice
 
 Before using, you should install dlib and download `shape_predictor_68_face_landmarks.dat` and `shape_predictor_5_face_landmarks.dat` from [dlib website](http://dlib.net/files/). Then you should put the model data file in ../data directory, otherwise there would be a `file not found` error.
@@ -117,12 +123,6 @@ In this script, there are two functions. One function is to resort images, and t
 - output_dir: output directory
 
 - split_ratio: how much percent of images you want to have in validate dataset.
-
-After face alignment, face was rotated to vertical state, and had width/height ratio of 7/8. Face alignment result of an actress is shown below.
-
-|  face before alignment | face after alignment |
-| :------: | :------: |
-| ![](../data/actress_before_align.jpg) | ![](../data/actress_after_align.jpg) |
 
 #### Notice
 
