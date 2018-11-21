@@ -48,7 +48,7 @@ Though what we really want are images of those beautiful actresses, we still dow
 
 #### Usage Description
 
-You can run this script with command `python male_face_and_no_face_filter.py --model resnet18_v2 --class_number 4 --use_gpu True --input_dir ../data/xxx --threshold 0.9`.  The option descriptions are shown below.
+You can run this script with command `python male_face_and_no_face_filter.py --model resnet18_v2 --class_number 4 --use_gpu True --input_dir ../data/xxx --threshold 0.9`. The option descriptions are shown below.
 
 - model: CNN model name. In this script, a resnet18_v2 CNN model is used. You can find more models in model zoo provided by MXNet.
 
@@ -85,3 +85,53 @@ After clearning with the above two scripts, we already have a good dataset. But 
 
 #### Notice
 
+___
+
+## resort_images
+
+#### Backgroud
+
+After cleaning the dataset, finally we can prepare our dataset for trainning. During the stage of collecting images, we also have downloaded the detail information of movies. In this step, we use this information to resort our images. Specificially, we can tell if one movie has only actress from the detail information. We just use this kind of movie to build our dataset. After trained a good face recoginition model, we can use the model to seperate images in multiple actresses' movie.
+
+#### Usage Description
+
+In this script, there are two functions. One function is to resort images, and the other is to split the dataset. You can run this scrip like this `python resort_images.py --movie_image_dir ../data/xxx --movie_detail_dir ../data/xxx --output_dir ../data/xxx --split_ratio 0.2`. The option descriptions are shown below.
+
+- movie_image_dir: directory contains images that you want to resort
+
+- movie_detail_dir: directory contains movie detail
+
+- output_dir: output directory
+
+- split_ratio: how much percent of images you want to have in validate dataset.
+
+#### Notice
+
+There are some steps I have ignored implicitly. After downloading, there is some chaos in the dataset. You should correct them before usage. The detail text file's name may not be consistent with its directory. There may be some information lost in the detail. Such things are quite annoying, but you have to process them.
+
+In addition, the image number of different class may have a huge change. Some classes have tens of images, and others have hundreds of images. The imbalance is also annoying. You can choose to upsample or downsample or use different weights.
+
+## Dataset Structure
+
+The dataset's structure looks like this in the end.
+
+<pre>
+dataset_dir/
+├── train
+│   ├── actress0
+│   │   ├── image0
+│   │   ├── image1
+│   │   ├── image2
+│   │   ├── ...
+│   ├── actress1
+│   │   ...
+│   
+└── val
+    ├── actress0
+    │   ├── image0
+    │   ├── image1
+    │   ├── image2
+    │   ├── ...
+    ├── actress1
+    │   ...
+</pre>
