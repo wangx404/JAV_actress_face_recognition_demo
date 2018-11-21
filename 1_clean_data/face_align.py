@@ -14,8 +14,6 @@ def parseArgs():
                         help='where to input movie images')
     parser.add_argument('--output_dir', required=True, type=str,
                         help='where to save movie images')
-    parser.add_argument('--model', required=True, type=str,
-                        help='choose face detection model')
     parser.add_argument('--face_detector', required=True, type=str,
                         help='which face detect function to use')
     parser.add_argument('--landmark_detector', required=True, type=str,
@@ -361,9 +359,9 @@ if __name__ == '__main__':
         face_detector = dlibFrontalFaceDetect
     else:
         raise 'You should choose a right face detect function.'
-    if args.landmark == 'dlib_68':
+    if args.landmark_detector == 'dlib_68':
         landmark_detector = dlib68FacialLandmarkDetect
-    elif args.landmark == 'dlib_5':
+    elif args.landmark_detector == 'dlib_5':
         landmark_detector = dlib5FacialLandmarkDetect
     else:
         raise 'You should choose a right landmark detect function.'
