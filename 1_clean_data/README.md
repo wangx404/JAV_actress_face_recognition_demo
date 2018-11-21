@@ -18,13 +18,13 @@ In addition, we would discard those small faces which are smaller than the thres
 
 #### Usage Description
 
-You can run this script using command like `python face_crop_and_size_filter.py --input_dir dir --output_dir dir --model str --threshold int --threads int`. The option descriptions are shown below.
+You can run this script using command like `python face_crop_and_size_filter.py --input_dir dir --output_dir dir --face_detector str --threshold int --threads int`. The option descriptions are shown below.
 
 - input_dir: input image directory
 
 - output_dir: output image directory to save images after processed
 
-- model: choose model to detect face. There are two options here, dlib and dlib_cnn. Dlib uses fromtal face detector in dlib, and its speed is fast with a nice accuracy. Dlib_cnn uses cnn face detector in dlib, and its speed is very slow, but its accuracy is also very high. So you can choose anyone according to your computer.
+- face_detector: choose model to detect face. There are two options here, dlib and dlib_cnn. 'dlib' uses fromtal face detector in dlib, and its speed is fast with a nice accuracy. 'dlib_cnn' uses cnn face detector in dlib, and its speed is very slow, but its accuracy is also very high. So you can choose anyone according to your computer.
 
 - threshold: face filter threshold. Face size smaller than threshold will be discarded.
 
