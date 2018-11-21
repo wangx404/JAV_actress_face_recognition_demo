@@ -8,7 +8,7 @@ You should run these scripts in order, otherwise there would be some unexpected 
 
 ___
 
-### face_crop_and_size_filter
+## face_crop_and_size_filter
 
 #### Background
 
@@ -40,7 +40,7 @@ Before using, you should install dlib and download `mmod_human_face_detector.dat
 
 ___
 
-### male_face_and_no_face_filter
+## male_face_and_no_face_filter
 
 #### Background
 
@@ -75,7 +75,7 @@ In this script, male-face images and images without faces are deleted after pred
 
 ___
 
-### face_align
+## face_align
 
 #### Background
 
