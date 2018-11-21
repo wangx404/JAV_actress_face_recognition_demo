@@ -12,7 +12,7 @@ def parseArgs():
                         help='where to input movie images')
     parser.add_argument('--output_dir', required=True, type=str,
                         help='where to save movie images')
-    parser.add_argument('--model', required=True, type=str,
+    parser.add_argument('--face_detector', required=True, type=str,
                         help='choose face detection model')
     parser.add_argument('--threshold', required=True, type=int,
                         help='threshold to filter small faces')
@@ -26,15 +26,16 @@ def parseArgs():
 # 而dlib的人脸检测器对于较大的人脸的检测效果比较差；
 # dlib的cnn检测器效果还可以。
 dlib_detector = dlib.get_frontal_face_detector()
-def dlibFrontalFaceDetect(image, upsampling=1):
+def dlibFrontalFaceDetect(img, upsampling=1):
     '''
     Using dlib frontal face detector to detect faces in image.
     使用dlib提供的前脸检测器进行人脸检测。
-    :param image: image file path
+    :param img: face image
     :param upsampling: upsample ratio for dlib frontal face detector
     :return result: face box in format [[xmin, ymin, xmax, ymax], ]
     '''
-    img = dlib.load_rgb_image(image)
+    if type(img) == str:
+        img = dlib.load_rgb_image(img)
     faces = dlib_detector(img, upsampling)
     if len(faces) == 0:
         return None
@@ -45,14 +46,15 @@ def dlibFrontalFaceDetect(image, upsampling=1):
 
 
 dlib_cnn_face_detector = dlib.cnn_face_detection_model_v1('../data/mmod_human_face_detector.dat')
-def dlibCNNFaceDetect(image):
+def dlibCNNFaceDetect(img):
     '''
     Using dlib cnn face detector to detect faces in image.
     使用dlib的cnn人脸检测器进行人脸检测。
-    :param upsampling: upsample ratio for dlib frontal face detector
+    :param img:  face image
     :return result: face box in format [[xmin, ymin, xmax, ymax], ]
     '''
-    img = dlib.load_rgb_image(image)
+    if type(img) == str:
+        img = dlib.load_rgb_image(img)
     faces = dlib_cnn_face_detector(img, 1)
     if len(faces) == 0:
         return None
@@ -106,7 +108,8 @@ def faceCropAndFilter(input_dir, output_dir, image, detector, threshold=55):
     image_prefix = image.split('.')[0]
     image = os.path.join(input_dir, image) # image file
     img = cv2.imread(image) # face ndarray
-    faces = detector(image)
+    rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    faces = detector(rgb_img)
     if faces == None:
         return
     # save faces in for loop
@@ -115,10 +118,10 @@ def faceCropAndFilter(input_dir, output_dir, image, detector, threshold=55):
         xmin, ymin, xmax, ymax = face
         if (xmax - xmin) < threshold or (ymax - ymin) < threshold:
             continue # small face filter, not save those faces
-        face = faceCrop(img, xmin, ymin, xmax, ymax)
+        face_img = faceCrop(img, xmin, ymin, xmax, ymax)
         out_image = '%s_%d.jpg' % (image_prefix, index)
         out_image = os.path.join(output_dir, out_image)
-        cv2.imwrite(out_image, face)
+        cv2.imwrite(out_image, face_img)
         index += 1
 
 
@@ -164,14 +167,15 @@ def mutilThreadFaceProcess(input_dir, output_dir, detector, threshold, threads):
     调用单进程函数的多进程检测函数。
     :param input_dir: the root input directory where to input movie images
     :param output_dir: the root input directory where to save movie images
-    :param detector: dlib fromtal face detector od dlib cnn face detector
+    :param detector: dlib fromtal face detector or dlib cnn face detector
     :param threshold: threshold to discard small faces
     :param threads: thread numbers
     :return None:
     '''
     pool = multiprocessing.Pool(processes=threads)
     for thread_index in range(threads):
-        pool.apply_async(facesCropAndFilter, (input_dir, output_dir, detector, threshold, threads, thread_index))
+        pool.apply_async(facesCropAndFilter, (input_dir, output_dir, detector, 
+                                              threshold, threads, thread_index))
 
     pool.close()
     pool.join()
@@ -181,9 +185,9 @@ if __name__ == '__main__':
     args = parseArgs()
     input_dir = args.input_dir
     output_dir = args.output_dir
-    if args.model == 'dlib':
+    if args.face_detector == 'dlib':
         detector = dlibFrontalFaceDetect
-    elif args.model == 'dlib_cnn':
+    elif args.face_detector == 'dlib_cnn':
         detector = dlibCNNFaceDetect
     else:
         print('You should choose the model in dlib and dlib_cnn.')
