@@ -74,17 +74,20 @@ def splitDataset(output_dir, split_ratio=0.2):
     :param split_ratio: image proportion of validate dataset, default value is 20%
     :return None:
     '''
-    actress_list = os.listdir(output_dir, 'train')
+    actress_list = os.listdir(os.path.join(output_dir, 'train'))
     actress_list.sort()
     
     for actress in actress_list:
         image_list = os.listdir(os.path.join(output_dir, 'train', actress))
         random.shuffle(image_list)
         length = len(image_list)
-        image_list = image_list[:int(length*split_ratio)]
+        if length < 5:
+            image_list = image_list[:1]
+        else:
+            image_list = image_list[:int(length*split_ratio)]
         
         if not os.path.exists(os.path.join(output_dir, 'val', actress)):
-            os.makedirs(output_dir, 'val', actress)
+            os.makedirs(os.path.join(output_dir, 'val', actress))
         for image in image_list:
             shutil.move(os.path.join(output_dir, 'train', actress, image), 
                         os.path.join(output_dir, 'val', actress, image))
