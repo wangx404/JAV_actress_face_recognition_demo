@@ -90,3 +90,4 @@ class LeNetPlus(gluon.nn.HybridBlock):
         feature = self.features(x)
         output = self.output(feature)
         return output, feature
+    
