@@ -223,7 +223,7 @@ def getVerticalFace(image, face_detector, landmark_detector):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # color space transform
     # detect face
     faces = face_detector(img)
-    if faces == None:
+    if faces is None:
         print('No face in image %s' % image)
         return
     # detect facial landmark and calculate slope degree
@@ -279,7 +279,7 @@ def faceAlignment(image, face_detector, landmark_detector):
     vertical_face_img = getVerticalFace(image, face_detector, landmark_detector)
     # detect face once again
     faces = face_detector(vertical_face_img)
-    if faces == None:
+    if faces is None:
         print('No face in image %s' % image)
         return
     # detect facial landmark and calculate slope degree
@@ -313,15 +313,16 @@ def singleThreadFaceAlignment(input_dir, output_dir, face_detector, landmark_det
     for movie in movie_list:
         if not os.path.exists(os.path.join(output_dir, movie)):
             os.makedirs(os.path.join(output_dir, movie))
-        else:
-            continue
         
         image_list = os.listdir(os.path.join(input_dir, movie))
         for image in image_list:
             image_file = os.path.join(os.path.join(input_dir, movie, image))
+            new_image_file = os.path.join(os.path.join(output_dir, movie, image))
+            if os.path.exists(new_image_file):
+                continue
+            
             try:
                 img = faceAlignment(image_file, face_detector, landmark_detector)
-                new_image_file = os.path.join(os.path.join(output_dir, movie, image))
                 cv2.imwrite(new_image_file, img)
             except Exception as e:
                 print('Something went wrong when process image ', image_file)
