@@ -4,7 +4,9 @@ Taken such a long time to process these images, finally I have only about 20K cl
 
 Using this script, you can train the CNN model to do the main jod in face recognition.
 
-In 2018.11.16, this script has no problem to run. But there still exists a serious problem. When training the model, the loss can be nan. Even if the loss is not nan, the accuracy of the model is pretty low. I still have not located the problem. If you know what is the problem, please tell me.
+2018.11.16, this script has no problem to run. But there still exists a serious problem. When training the model, the loss can be nan. Even if the loss is not nan, the accuracy of the model is pretty low. I still have not located the problem. If you know what is the problem, please tell me.
+
+2018.11.29 ready to use face recognition model in dlib to test.
 
 ## Background
 
